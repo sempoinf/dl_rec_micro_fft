@@ -103,23 +103,22 @@ class FFT_convert():
 def main(args: list):
     adc_mV_still = () # need write a values
     adc_mV_1000 = () # need write a values
-    sample_rate = 10000  # for 30 kHz - max
+    sample_rate = 5000  # for 1500 kHz - max
 
-    data = ParserResult(filename='../dl_rec_read_data_py/results_1000Hz.txt')
+    data = ParserResult(filename='../dl_rec_read_data_py/res/results_500Hz.txt')
 
-    adc_mV_still = data.parse_section(14)
+    adc_mV_still = data.parse_section(3)
 
     analog_signal = SetZero(adc_mV_still)
     transform_sig = analog_signal.transform_analog()
     # input(transform_sig)
 
-    # sine = Plottering(transform_sig)
-    # sine.graph()
-
     num_samples = len(transform_sig)
     hz = FFT_convert(adc_mV_still, sample_rate, num_samples)
     hz.calculate()
 
+    sine = Plottering(transform_sig)
+    sine.graph()
 
 if __name__ == '__main__':
     main(sys.argv)
