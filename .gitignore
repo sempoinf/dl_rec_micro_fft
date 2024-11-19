@@ -1,3 +1,26 @@
 # Environments
 .env
 .venv
+
+# Ignore binary files and libraries
+*.o       # Object files
+*.a       # Static libraries
+*.so      # Shared libraries
+*.dll     # Windows DLLs
+*.exe     # Executable files
+*.bin     # Binary files
+*.lib     # Libraries
+*.dylib   # macOS dynamic libraries
+
+# Ignore build directories (common names)
+bin/
+lib/
+build/
+out/
+
+# Ignore platform-specific files
+.DS_Store  # macOS metadata files
+Thumbs.db  # Windows metadata files
+
+*.txt
+*.json
